@@ -1,0 +1,29 @@
+<div class="continer-fluid mb-4">
+    <img src="/assets/banner43.png" class="d-block w-100" alt="banner">
+</div>
+<div class="container-fluid">
+    <div class="container alert alert-danger" *ngIf="welcomeErrorMessageFromServer">
+        <h5>Exception occurred - {{welcomeErrorMessageFromServer}}</h5>
+    </div>
+
+    <div class="display-6 text-start ms-5">Hi {{name}}!</div>
+
+    <div class="container row justify-content-evenly">
+        <div class="col-sm-3 card">
+            <img class="rounded" src="/assets/ShoppingCart.jpg" class="card-img-top" alt="...">
+            <h6 class="card-title"> Your message is - {{message}}</h6>
+            <p class="card-text">Click here to get a customized message</p>
+            <button (click)="getWelcomeMessageWithParameter()" class="btn btn-success">Get welcome mesage</button>
+        </div>
+        <div class="col-sm-3 card">
+            <img class="rounded" src="/assets/todo.jpg" class="card-img-top" alt="...">
+            <h6 class="card-title"> Todos collection</h6>
+            <p class="card-text">Manage the todos here</p>
+            <div class="m-1"><button class="btn btn-primary" routerLink="/todos">Go to Todos</button></div>
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-center" *ngIf="welcomeMessageFromServer">
+        <h2>Your customised message is {{welcomeMessageFromServer}}</h2>
+    </div>
+</div>

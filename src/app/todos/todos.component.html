@@ -1,0 +1,71 @@
+<div class="container-fluid">
+<h3>Table</h3>
+<div class="alert alert-success" *ngIf="message">{{message}}</div>
+<div class="container">
+    <table class="table table-striped">
+        <caption> My todo's</caption>
+        <thead class="table-dark">
+            <tr>
+                <th>description</th>
+                <th>Target Date</th>
+                <th>Is Completed?</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todos">
+                <td>{{todo.description}}</td>
+                <td>{{todo.targetDate | date}}</td>
+                <td>{{todo.done}}</td>
+                <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+                <td><button class="btn btn-warning" (click)="open(content,todo.id)">Delete</button></td>
+                <!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
+            </tr>
+        </tbody>
+
+    </table>
+    <div class="row">
+        <button (click)="addTodo()" class="btn btn-success ms-3 col-1">Add</button>
+    </div>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Delete Confirmation</h4>
+          <button type="button" class="btn btn-close" (click)="modal.dismiss('Cross click')">
+            <!-- <span aria-hidden="true">&times;</span> -->
+          </button>
+        </div>
+        <div class="modal-body">
+         Are you sure you want to delete?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"(click)="modal.dismiss('Close button')">Close</button>
+          <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template>
+
+    <!-- Modal -->
+<!-- 
+    <div class="modal fade" id="exampleModal" tabindex="-1" *ngIf="show" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" (click)="deleteTodo(todoid)" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+</div>
+</div>

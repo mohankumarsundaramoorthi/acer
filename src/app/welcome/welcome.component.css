@@ -1,0 +1,9 @@
+.img-resize{
+    /* min-width: 2px;
+    min-height: 3px; */
+    /* width: auto; /* Will shrink image to 30% of its original width */
+  width: auto;
+  max-height: 10rem;
+    /* width: 500px;
+    height: 120px; */
+}

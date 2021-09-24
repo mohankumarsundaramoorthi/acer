@@ -1,4 +1,4 @@
-# activities-springboot
+# activities-api
 Spring boot application exposing api for Todo activities
 
 ## Development server

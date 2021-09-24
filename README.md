@@ -1,11 +1,11 @@
 # activities-springboot
 Spring boot application for Todo activities
 
-# Development server
-The dev server runs on http://localhost:8060
-server context path=/con
+## Development server
+* The dev server runs on http://localhost:8060
+* server context path=/con
 
-# Authentication
+## Authentication
 The api exposed is protected by JWT authentication
 
 

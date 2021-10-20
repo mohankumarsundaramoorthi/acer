@@ -46,6 +46,7 @@ export class TodosComponent implements OnInit {
   }
 
   private refreshTodos() {
+    // this.todoService.testStrResponse();
     this.todoService.retrieveAllTodos('in28Minutes').subscribe(
       response => {
         console.log(response);

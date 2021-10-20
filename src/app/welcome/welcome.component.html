@@ -1,12 +1,30 @@
-<div class="continer-fluid mb-4">
-    <img src="/assets/banner43.png" class="d-block w-100" alt="banner">
-</div>
 <div class="container-fluid">
     <div class="container alert alert-danger" *ngIf="welcomeErrorMessageFromServer">
         <h5>Exception occurred - {{welcomeErrorMessageFromServer}}</h5>
     </div>
 
-    <div class="display-6 text-start ms-5">Hi {{name}}!</div>
+    <!-- <div class="display-6 text-start ms-5">Hi {{name}}!</div> -->
+
+    <section class="welcome-section">
+        <div class="container-section">
+            <div id="content">
+                <h2 class="display-3">Welcome to Acer </h2>
+                <p class="display-6"> Manage your Todo activities</p>
+                <div class="p-section">
+                    <p class="lead">Easy way to create, update and delete your to-do lists. Stay on track with your tasks</p>                    
+                    <p class="lead">Organize your tasks by maintaining a list</p>      
+                    <p class="lead">Start easily managing your to-do list by clicking on below button</p>              
+                </div>
+                <div class="a-layout">
+                    <a class="btn btn-success" (click)="getWelcomeMessageWithParameter()">Get Welcome message</a>
+                    <a routerLink="/todos" class="btn btn-secondary">Go to Todos</a>
+                </div>
+            </div>
+            <div class="img-section">
+                <img src="/assets/task-side-image.jpg" alt="task image" class="img-layout">
+            </div>
+        </div>
+    </section>
 
     <div class="container row justify-content-evenly">
         <div class="col-sm-3 card">
@@ -26,4 +44,13 @@
     <div class="container d-flex justify-content-center" *ngIf="welcomeMessageFromServer">
         <h2>Your customised message is {{welcomeMessageFromServer}}</h2>
     </div>
+    <footer class="footer bg-dark">
+        <div class="social">
+          <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+          <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+          <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+        </div>
+        <p>Copyright &copy; 2021 - Acer</p>
+      </footer>
 </div>

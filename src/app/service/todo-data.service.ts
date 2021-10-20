@@ -10,6 +10,12 @@ export class TodoDataService {
 
   constructor(private http: HttpClient) { }
 
+  // testStrResponse() {
+  //   this.http.post(`${API_URL}/con/str/test`, {username:'user'},{ responseType: 'text' }).subscribe(response => {
+  //     console.log(`Response from spring is - ${response}`);
+  //   })    
+  // }
+
   retrieveAllTodos(username: string) {
     return this.http.get<Todo[]>(`${API_URL}/con/users/${username}/todos`);
   }

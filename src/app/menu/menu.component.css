@@ -1,0 +1,7 @@
+.custom-navbar-layout {
+    margin-right: 15px;
+}
+
+.custom-nav-item:hover {
+    cursor: pointer;
+}

@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AUTHENTICATED_USER, BasicAuthenticationService } from '../service/basic-authentication.service';
 import { HardCodedAuthenticationService } from '../service/hard-coded-authentication.service';
+import { LogInBean, SharedDataService } from '../service/shared-data.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,9 +11,9 @@ import { HardCodedAuthenticationService } from '../service/hard-coded-authentica
 })
 export class MenuComponent implements OnInit {
 
-  username: any;
+  username: any;  
 
-  constructor(public hardCodedAuthService: HardCodedAuthenticationService, private basicAuthService: BasicAuthenticationService) { }
+  constructor(public hardCodedAuthService: HardCodedAuthenticationService, private basicAuthService: BasicAuthenticationService, private sharedData: SharedDataService, private router:Router) { }
 
   ngOnInit(): void {
     console.log("initializing menu component")
@@ -26,6 +28,11 @@ export class MenuComponent implements OnInit {
     if (typeof this.username === 'undefined') {
       this.username = this.basicAuthService.getAuthenticatedUser();
     }
+  }
+
+  onLoginClick() {    
+    this.sharedData.changeLoggedInStatus({isUserLoggedIn:true,showContent:false});
+    this.router.navigate(['/login']);
   }
 
 

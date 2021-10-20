@@ -16,6 +16,7 @@ import { TodoComponent } from './todo/todo.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpinterceptorService } from './http/httpinterceptor.service';
 import { SignupComponent } from './signup/signup.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -29,13 +30,15 @@ import { SignupComponent } from './signup/signup.component';
     LogoutComponent,
     TodoComponent,
     SignupComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FlexLayoutModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass : HttpinterceptorService, multi:true}

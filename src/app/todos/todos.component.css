@@ -1,0 +1,21 @@
+.container-fluid {
+    height: 100%;        
+}
+
+.container {
+    height: 100%;
+    margin-top: 50px;
+}
+
+.task:not(.complete) {
+    cursor: pointer;
+    /* transition: box-shadow 0.2s ease, transform 0.2s ease; */
+}
+.task:active {
+    transform: scale(0.95);
+}
+
+.task-text {
+    text-decoration: line-through;
+    opacity: 0.8;
+}

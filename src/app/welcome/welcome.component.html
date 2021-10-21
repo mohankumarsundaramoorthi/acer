@@ -11,12 +11,13 @@
                 <h2 class="display-3">Welcome to Acer </h2>
                 <p class="display-6"> Manage your Todo activities</p>
                 <div class="p-section">
-                    <p class="lead">Easy way to create, update and delete your to-do lists. Stay on track with your tasks</p>                    
-                    <p class="lead">Organize your tasks by maintaining a list</p>      
-                    <p class="lead">Start easily managing your to-do list by clicking on below button</p>              
+                    <p class="lead">Easy way to create, update and delete your to-do lists. Stay on track with your
+                        tasks</p>
+                    <p class="lead">Organize your tasks by maintaining a list</p>
+                    <p class="lead">Start easily managing your to-do list by clicking on below button</p>
                 </div>
                 <div class="a-layout">
-                    <a class="btn btn-success" (click)="getWelcomeMessageWithParameter()">Get Welcome message</a>
+                    <a class="btn btn-success" (click)="getWelcomeMessageWithParameter(content)">Get Welcome message</a>
                     <a routerLink="/todos" class="btn btn-secondary">Go to Todos</a>
                 </div>
             </div>
@@ -31,7 +32,7 @@
             <img class="rounded" src="/assets/ShoppingCart.jpg" class="card-img-top" alt="...">
             <h6 class="card-title"> Your message is - {{message}}</h6>
             <p class="card-text">Click here to get a customized message</p>
-            <button (click)="getWelcomeMessageWithParameter()" class="btn btn-success">Get welcome mesage</button>
+            <button (click)="getWelcomeMessageWithParameter(content)" class="btn btn-success">Get welcome mesage</button>
         </div>
         <div class="col-sm-3 card">
             <img class="rounded" src="/assets/todo.jpg" class="card-img-top" alt="...">
@@ -40,17 +41,28 @@
             <div class="m-1"><button class="btn btn-primary" routerLink="/todos">Go to Todos</button></div>
         </div>
     </div>
-
-    <div class="container d-flex justify-content-center" *ngIf="welcomeMessageFromServer">
-        <h2>Your customised message is {{welcomeMessageFromServer}}</h2>
-    </div>
+    
     <footer class="footer bg-dark">
         <div class="social">
-          <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-          <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-          <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
-          <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+            <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
         </div>
         <p>Copyright &copy; 2021 - Acer</p>
-      </footer>
+    </footer>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Welcome message</h4>
+            <button type="button" class="btn btn-close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            Your welcome message from Spring boot server is: {{welcomeMessageFromServer}}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="modal.dismiss('Close button')">Close</button>
+        </div>
+    </ng-template>
+
 </div>

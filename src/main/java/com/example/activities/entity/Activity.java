@@ -1,17 +1,34 @@
 package com.example.activities.entity;
 
+import org.springframework.stereotype.Component;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
-public class Todo {
-    private long id;
+@Component
+@Entity
+public class Activity {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
+
     private String userName;
+
     private String description;
 
-    public Todo() {
+    private Date targetDate;
+
+    private boolean isDone;
+
+    public Activity() {
 
     }
 
-    public Todo(long id, String userName, String description, Date targetDate, boolean isDone) {
+    public Activity(int id, String userName, String description, Date targetDate, boolean isDone) {
         this.id = id;
         this.userName = userName;
         this.description = description;
@@ -19,11 +36,11 @@ public class Todo {
         this.isDone = isDone;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -59,6 +76,4 @@ public class Todo {
         isDone = done;
     }
 
-    private Date targetDate;
-    private boolean isDone;
 }

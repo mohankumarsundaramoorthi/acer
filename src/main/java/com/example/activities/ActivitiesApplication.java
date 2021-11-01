@@ -2,8 +2,10 @@ package com.example.activities;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableFeignClients
 public class ActivitiesApplication {
 
 	public static void main(String[] args) {

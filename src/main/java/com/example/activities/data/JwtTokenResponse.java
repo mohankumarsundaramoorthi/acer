@@ -1,4 +1,4 @@
-package com.example.activities.jwt.resource;
+package com.example.activities.data;
 
 import java.io.Serializable;
 

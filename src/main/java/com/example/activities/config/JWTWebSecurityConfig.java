@@ -1,5 +1,7 @@
-package com.example.activities.jwt;
+package com.example.activities.config;
 
+import com.example.activities.filter.JwtTokenAuthorizationOncePerRequestFilter;
+import com.example.activities.jwt.JwtUnAuthorizedResponseAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -82,7 +84,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .ignoring()
                 .antMatchers(
                         HttpMethod.GET,
-                        "/" //Other Stuff You want to Ignore
+                        "/" //Other Stuff to Ignore
                 )
                 .and()
                 .ignoring()
@@ -92,6 +94,6 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 )
                 .and()
                 .ignoring()
-                .antMatchers("/h2-console/**/**");//Should not be in Production!
+                .antMatchers("/h2-console/**/**");//For development
     }
 }

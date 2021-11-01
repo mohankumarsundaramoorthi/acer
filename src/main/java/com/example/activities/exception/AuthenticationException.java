@@ -1,4 +1,4 @@
-package com.example.activities.jwt.resource;
+package com.example.activities.exception;
 
 public class AuthenticationException extends RuntimeException {
     public AuthenticationException(String message, Throwable cause) {

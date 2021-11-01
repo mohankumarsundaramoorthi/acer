@@ -1,6 +1,10 @@
-package com.example.activities.entity;
+package com.example.activities.data;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class AuthCustomUser {
+
     private String userName;
     private String password;
 

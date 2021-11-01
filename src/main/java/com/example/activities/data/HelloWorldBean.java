@@ -1,12 +1,11 @@
-package com.example.basicauth;
+package com.example.activities.data;
 
-public class AuthenticationBean {
+import org.springframework.stereotype.Component;
+
+@Component
+public class HelloWorldBean {
 
     private String message;
-
-    public AuthenticationBean(String message) {
-        this.message = message;
-    }
 
     public String getMessage() {
         return message;

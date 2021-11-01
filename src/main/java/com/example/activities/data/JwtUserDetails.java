@@ -1,37 +1,33 @@
-package com.example.activities.jwt;
+package com.example.activities.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
+@Component
 public class JwtUserDetails implements UserDetails {
 
     private static final long serialVersionUID = 5155720064139820502L;
 
-    private final Long id;
-    private final String username;
-    private final String password;
-    private final Collection<? extends GrantedAuthority> authorities;
+    private Long id;
+    private String username;
+    private String password;
+    private Collection<? extends GrantedAuthority> authorities;
 
-    public JwtUserDetails(Long id, String username, String password, String role) {
+    public void setId(Long id) {
         this.id = id;
-        this.username = username;
-        this.password = password;
-
-        List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-        authorities.add(new SimpleGrantedAuthority(role));
-
-        this.authorities = authorities;
     }
 
     @JsonIgnore
     public Long getId() {
         return id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
@@ -57,10 +53,18 @@ public class JwtUserDetails implements UserDetails {
         return true;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @JsonIgnore
     @Override
     public String getPassword() {
         return password;
+    }
+
+    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+        this.authorities = authorities;
     }
 
     @Override

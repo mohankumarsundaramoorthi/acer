@@ -12,17 +12,17 @@ public class JwtUserDetails implements UserDetails {
 
     private static final long serialVersionUID = 5155720064139820502L;
 
-    private Long id;
+    private int id;
     private String username;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @JsonIgnore
-    public Long getId() {
+    public int getId() {
         return id;
     }
 

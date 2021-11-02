@@ -16,17 +16,15 @@ public class JWTUserService {
     @Autowired
     private UserDetails userDetails;
 
-    @Autowired
-    private JwtUserDetails jwtUserDetails;
-
     public long createUser(String username, String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedStr = encoder.encode(password);
+        userDetails.setId(-1);
         userDetails.setUserName(username);
         userDetails.setEncodedPassword(encodedStr);
         String role_user = "ROLE_USER";
         userDetails.setRole(role_user);
-        userDetailsRepository.save(userDetails);
-        return userDetails.getId();
+        var createdUser = userDetailsRepository.save(userDetails);
+        return createdUser.getId();
     }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { BasicAuthenticationService } from '../service/basic-authentication.service';
 import { HardCodedAuthenticationService } from '../service/hard-coded-authentication.service';
@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin() {
-    // if(this.username != 'Alex' && this.password !='dummy') {
     this.basicAuthenticationService.executeAuthenticationService(this.username, this.password)
       .subscribe(
         data => {
@@ -61,7 +60,6 @@ export class LoginComponent implements OnInit {
   }
 
   handleJWTAuthLogin() {
-    // if(this.username != 'Alex' && this.password !='dummy') {
     this.basicAuthenticationService.executeJWTAuthenticationService(this.username, this.password)
       .subscribe(
         data => {

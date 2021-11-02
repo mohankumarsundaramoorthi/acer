@@ -52,6 +52,10 @@ export class WelcomeComponent implements OnInit {
     this.welcomeErrorMessageFromServer = error.error.message;
   }
 
+  
+  submit(contact : any) {
+    console.log(contact);
+  }
 
 
 

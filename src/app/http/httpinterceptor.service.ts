@@ -11,10 +11,6 @@ export class HttpinterceptorService implements HttpInterceptor {
   constructor(private basicAuthService : BasicAuthenticationService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // let username = 'user';
-    // let password = 'dummy';
-    // let basicAuthHeaderStr = 'Basic ' + window.btoa(username + ':' + password);
-
     let basicAuthHeaderStr = this.basicAuthService.getAuthenticatedToken();
     let username = this.basicAuthService.getAuthenticatedUser();
     if(basicAuthHeaderStr && username){

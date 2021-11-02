@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpinterceptorService } from './http/httpinterceptor.service';
 import { SignupComponent } from './signup/signup.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FooterComponent,
     LogoutComponent,
     TodoComponent,
-    SignupComponent
+    SignupComponent,
+    WeatherComponent
     
   ],
   imports: [

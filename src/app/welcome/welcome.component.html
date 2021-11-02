@@ -19,6 +19,7 @@
                 <div class="a-layout">
                     <a class="btn btn-success" (click)="getWelcomeMessageWithParameter(content)">Get Welcome message</a>
                     <a routerLink="/todos" class="btn btn-secondary">Go to Todos</a>
+                    <a routerLink="/weather" class="btn btn-secondary">Check Weather</a>
                 </div>
             </div>
             <div class="img-section">
@@ -32,7 +33,8 @@
             <img class="rounded" src="/assets/ShoppingCart.jpg" class="card-img-top" alt="...">
             <h6 class="card-title"> Your message is - {{message}}</h6>
             <p class="card-text">Click here to get a customized message</p>
-            <button (click)="getWelcomeMessageWithParameter(content)" class="btn btn-success">Get welcome mesage</button>
+            <button (click)="getWelcomeMessageWithParameter(content)" class="btn btn-success">Get welcome
+                mesage</button>
         </div>
         <div class="col-sm-3 card">
             <img class="rounded" src="/assets/todo.jpg" class="card-img-top" alt="...">
@@ -41,7 +43,91 @@
             <div class="m-1"><button class="btn btn-primary" routerLink="/todos">Go to Todos</button></div>
         </div>
     </div>
-    
+    <section id="contact" class="contact flex-columns">
+        <div class="row">
+            <div class="column form-layout">
+                <div class="column-1">
+                    <img src="/assets/contact.jpg" alt="" />
+                </div>
+            </div>
+            <div class="column form-layout">
+                <div class="column-2 bg-light">
+                    <h2>Request callback</h2>
+                    <form class="form-layout" #f="ngForm" (ngSubmit)="submit(f.value)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input required minlength="3" ngModel name="name" #name="ngModel" type="text" id="name"
+                                class="form-control" placeholder="Enter your name">
+                            <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+                                <div *ngIf="name.errors?.required">Name field is required.</div>
+                                <div *ngIf="name.errors?.minlength">Name field should be at least {{
+                                    name.errors?.minlength.requiredLength }} characters.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Email address</label>
+                            <input required minlength="3" ngModel name="email" #email="ngModel" type="email" id="email"
+                                class="form-control" placeholder="Enter your email">
+                            <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                                Email field is required.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Phone</label>
+                            <input required minlength="7" ngModel name="phone" #phone="ngModel" type="text" id="phone"
+                                class="form-control" placeholder="Enter your phone">
+                            <div *ngIf="phone.touched && phone.invalid" class="alert alert-danger">
+                                Phone field is required.
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <label style="margin:5px 0px" for="moneyBackGuarantee">
+                                <input ngModel name="hasMoneyBackGuarantee" type="checkbox" id="moneyBackGuarantee">
+                                Subscribe to newsletters?
+                            </label>
+                        </div>
+                        <button class="btn btn-primary" [disabled]="f.invalid">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    <div class="container">
+        <h3 class="display-6">Contact Us</h3>
+        <form #f="ngForm" (ngSubmit)="submit(f.value)">
+            <div class="form-group">
+                <label for="name">Course Name</label>
+                <input required minlength="3" ngModel name="name" #name="ngModel" type="text" id="name"
+                    class="form-control">
+                <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+                    <div *ngIf="name.errors?.required">Name field is required.</div>
+                    <div *ngIf="name.errors?.minlength">Name field should be at least {{
+                        name.errors?.minlength.requiredLength }} characters.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select required ngModel name="category" #category="ngModel" id="category" class="form-control">
+                    <option value=""></option>
+                    <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+                </select>
+                <div *ngIf="category.touched && category.invalid" class="alert alert-danger">
+                    Category field is required.
+                </div>
+            </div>
+            <div class="checkbox">
+                <label for="moneyBackGuarantee">
+                    <input ngModel name="hasMoneyBackGuarantee" type="checkbox" id="moneyBackGuarantee">
+                    30-day money-back guarantee?
+                </label>
+            </div>
+            <p>{{ f.value | json }}</p>
+            <button class="btn btn-primary" [disabled]="f.invalid">Create</button>
+        </form>
+    </div> -->
+
     <footer class="footer bg-dark">
         <div class="social">
             <a href="#"><i class="fab fa-facebook fa-2x"></i></a>

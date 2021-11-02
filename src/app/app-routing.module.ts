@@ -7,6 +7,7 @@ import { RouteGuardService } from './service/route-guard.service';
 import { SignupComponent } from './signup/signup.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodosComponent } from './todos/todos.component';
+import { WeatherComponent } from './weather/weather.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
@@ -16,12 +17,13 @@ const routes: Routes = [
   {path:'todos',component:TodosComponent, canActivate:[RouteGuardService]},
   {path:'logout',component:LogoutComponent, canActivate:[RouteGuardService]},
   {path:'todos/:id',component:TodoComponent, canActivate:[RouteGuardService]},
+  {path:'weather',component:WeatherComponent, canActivate:[RouteGuardService]},
   {path:'signup',component:SignupComponent},
   {path:'**',component:ErrorComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,  {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { 

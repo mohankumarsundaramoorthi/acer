@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { BasicAuthenticationService } from '../service/basic-authentication.service';
 import { TodoDataService } from '../service/todo-data.service';
 
 export class Todo {
@@ -26,28 +27,17 @@ export class TodosComponent implements OnInit {
   message !: string;
   show : boolean = false;
   closeResult = '';
+  userName : string = this.authService.getAuthenticatedUser()!;
 
-  // todos = [
-  //   new Todo(1, 'Learn to Dance', false, new Date()),
-  //   new Todo(2, 'Become and expert at angular', false, new Date()),
-  //   new Todo(1, 'Visit India', false, new Date()),
-  // ]
-
-  // todos = [
-  //   { id: 1, description: 'Learn to Dance' },
-  //   { id: 2, description: 'Learn to Sing' },
-  //   { id: 3, description: 'Learn to Fight' }
-  // ]
-
-  constructor(private todoService : TodoDataService, private router : Router, private modalService: NgbModal) { }
+  constructor(private todoService : TodoDataService, private authService : BasicAuthenticationService, private router : Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.refreshTodos();
   }
 
   private refreshTodos() {
-    // this.todoService.testStrResponse();
-    this.todoService.retrieveAllTodos('in28Minutes').subscribe(
+    
+    this.todoService.retrieveAllTodos(this.userName).subscribe(
       response => {
         console.log(response);
         this.todos = response;
@@ -56,7 +46,7 @@ export class TodosComponent implements OnInit {
   }
 
   deleteTodo(id : any) {
-    this.todoService.deleteTodo('Alex', id).subscribe(response => {
+    this.todoService.deleteTodo(this.userName, id).subscribe(response => {
       console.log(response);
       this.message = `Delete of ${id} is successful`; 
       this.refreshTodos();

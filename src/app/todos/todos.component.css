@@ -9,7 +9,6 @@
 
 .task:not(.complete) {
     cursor: pointer;
-    /* transition: box-shadow 0.2s ease, transform 0.2s ease; */
 }
 .task:active {
     transform: scale(0.95);

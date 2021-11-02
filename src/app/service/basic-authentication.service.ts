@@ -11,13 +11,8 @@ export const AUTHENTICATED_USER = "authenticatedUser";
   providedIn: 'root'
 })
 export class BasicAuthenticationService {
-
-  // @Output() username: EventEmitter<any> = new EventEmitter();
+  
   public username = '';
-
-  // public userNameSub : BehaviorSubject<any> = new BehaviorSubject('default value');
-
-  // public userNameObs = new Observable(sub => sub.next(this.username));
 
   public subject = new Subject<any>();
 
@@ -69,10 +64,6 @@ export class BasicAuthenticationService {
   getAuthenticatedUser() {
     return sessionStorage.getItem(AUTHENTICATED_USER);
   }
-
-  // getAuthenticatedUserAsObservable(): Observable<any> {
-  //   return new Observable(sub => sub.next(this.username));
-  // }
 
   getAuthenticatedUserAsSubject() : Observable<any> {
     return this.subject.asObservable();

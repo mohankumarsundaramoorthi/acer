@@ -1,0 +1,27 @@
+
+#weather-container{
+    background-color: #f4f4f4;
+    height: 100%;
+ }
+  
+  
+#weather-container .column .display-6 {
+    margin-top:10px;
+    font-size: large;
+ }
+
+ .flex-columns {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+.icon-layout{
+    margin-right: 5px;
+    color: green;
+  } 
+
+ .row {
+     width: 75%;
+ }

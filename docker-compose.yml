@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+
+  activities-web:
+    image: mohankumar19/activities-web:latest
+    mem_limit: 700m
+    ports:
+      - "4200:80"
+    networks:
+      - weather-network
+
+  weather-data:
+    image: mohankumar19/microservice-weather-data-service:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - "8000:8000"
+    networks:
+      - weather-network
+    depends_on:
+      - naming-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+
+  activities:
+    image: mohankumar19/microservice-activities-service:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - "8060:8060"
+    networks:
+      - weather-network
+    depends_on:
+      - naming-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+
+  api-gateway:
+    image: mohankumar19/microservice-api-gateway:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - "8765:8765"
+    networks:
+      - weather-network
+    depends_on:
+      - naming-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+
+  naming-server:
+    image: mohankumar19/microservice-naming-server:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - "8761:8761"
+    networks:
+      - weather-network
+
+networks:
+  weather-network:

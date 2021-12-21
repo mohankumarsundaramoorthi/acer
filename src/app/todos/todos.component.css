@@ -1,0 +1,20 @@
+.container-fluid {
+    height: 100%;        
+}
+
+.container {
+    height: 100%;
+    margin-top: 50px;
+}
+
+.task:not(.complete) {
+    cursor: pointer;
+}
+.task:active {
+    transform: scale(0.95);
+}
+
+.task-text {
+    text-decoration: line-through;
+    opacity: 0.8;
+}

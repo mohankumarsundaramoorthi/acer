@@ -1,0 +1,21 @@
+<section id ="weather-container"  class="flex-columns">
+    <div class="row">           
+        <h3 class="display-6"><i class="fas fa-cloud-showers-heavy icon-layout"></i>Check your city's Weather here</h3>
+        <div class="column">
+            <label for="city" style="margin: 5px 5px;">Choose your city</label>
+            <select name="city" id="city" #cy=ngModel [(ngModel)]="selectedLevel" (ngModelChange)="getWeather()">
+                <option value=""></option>
+                <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+            </select>
+            <div class="display-6">
+                Temperature : <span *ngIf="weatherData?.temperature; else no_data"> {{cy.value}} - {{weatherData.temperature}}&deg;C</span>
+            </div>
+            <ng-template #no_data>
+                No data found
+            </ng-template>
+        </div>
+        <div class="column" style="padding-right: 0;">
+            <img style=" object-fit: cover; height: 300px; border-radius: 5px;" id="weather-img-layout" src="/assets/monsoon.jpg" alt="monsoon-image">
+        </div>
+    </div>
+</section>

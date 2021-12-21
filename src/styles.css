@@ -1,0 +1,183 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css);
+  
+html, body {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;   
+}
+
+app-root {
+    display: block;
+    height: 100%;
+  }
+
+  
+.custom-container {
+    display:flex; 
+    width:100%;
+    height:100%;
+    justify-content: center;
+    align-items: center;        
+}
+
+.custom-container .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    color: #fff;
+}
+
+.custom-container .content button {
+    padding: 10px 30px;
+}
+
+.custom-container .content h1 {
+    font-size: 55px;
+}
+
+.custom-container .content p {
+    font-size: 23px;
+    max-width: 600px;
+    margin: 20px 0 30px;
+}
+
+.custom-modal-box {    
+    min-height: 250px;
+    width: 100%;
+    max-width: 500px;
+    background: rgba(227, 227, 227, 0.9);
+    border-radius: 5px;
+    padding: 2px;
+    padding-bottom: 15px;     
+}
+
+.title-text {
+    text-align: center;    
+}
+
+.color-blue {
+    color: steelblue;
+}
+
+.custom-h2 {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: 300;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.custom-h2 .title-font {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.faded-bg{
+    display:flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: url("/assets/task-management.jpg") no-repeat center center/cover;   
+    
+}
+
+.faded-bg * {
+    z-index: 10;
+}
+
+.faded-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.bg-dark {
+    background: #333;
+    color: #fff;
+ }
+
+ 
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 200px;
+  }
+  
+  .footer p {  
+      margin: 10px 0;
+  }
+  
+  .footer a {
+    color: #fff;
+  }
+  
+  .footer a:hover {
+    color: #28a745;
+  }
+  
+  .footer .social > * {
+    margin-right: 30px;
+  }
+
+  
+/* Flex columns */
+.flex-columns.flex-reverse .row {
+    flex-direction: row-reverse;
+  }
+  
+  .flex-columns .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .flex-columns .column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  }
+  
+  .flex-columns .column .column-1,
+  .flex-columns .column .column-2 {
+    height: 100%;
+  }
+  
+  .flex-columns img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .flex-columns .column-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+  
+  .flex-columns h2 {
+    font-size: 40px;
+    font-weight: 100;
+  }
+  
+  .flex-columns h4 {
+    margin-bottom: 10px;
+  }
+  
+  .flex-columns p {
+    margin: 20px 0;
+  }

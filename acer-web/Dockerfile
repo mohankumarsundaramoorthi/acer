@@ -1,4 +1,5 @@
 FROM node:latest
+ENV NODE_OPTIONS=--openssl-legacy-provider
 WORKDIR /usr/local/app
 COPY . /usr/local/app/
 RUN npm install

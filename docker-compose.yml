@@ -2,8 +2,8 @@ version: '3.7'
 
 services:
 
-  activities-web:
-    image: mohankumar19/activities-web:latest
+  acer-web:
+    image: mohankumar19/acer-web:latest
     mem_limit: 700m
     ports:
       - "4200:80"
@@ -22,8 +22,8 @@ services:
     environment:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
 
-  activities:
-    image: mohankumar19/microservice-activities-service:0.0.1-SNAPSHOT
+  acer-api:
+    image: mohankumar19/microservice-acer-api:0.0.1-SNAPSHOT
     mem_limit: 700m
     ports:
       - "8060:8060"

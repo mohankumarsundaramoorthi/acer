@@ -13,3 +13,21 @@
   <li>Extra feature - Weather service for various cities is being implemented using Microservices</li>
   <li>Application is containerized using Docker and images are pushed to Docker hub</li>
 </ul>
+
+<h2>Technologies used</h2> 
+<ul> 
+  <h3>Frontend:</h3>
+  <li>Angular</li>
+  <li>HTML</li>
+  <li>CSS3</li>
+</ul>
+<ul> 
+  <h3>Backend:</h3>
+  <li>Java</li>
+  <li>Spring Boot</li>
+  <li>Microservices - Eureka, Spring Cloud</li>
+</ul>
+<ul> 
+  <h3>Container:</h3>
+  <li>Docker</li>
+</ul>

@@ -1,6 +1,6 @@
 # acer
 <p align="center">
-  <img src="Images/social-preview.gif" width="600px" height="328px">
+  <img src="images/acer-login.png" width="600px" height="328px">
 </p>
 <h2>Angular based Task Management application</h2>
 

@@ -25,7 +25,7 @@
   <h3>Backend:</h3>
   <li>Java</li>
   <li>Spring Boot</li>
-  <li>Microservices - Eureka, Spring Cloud</li>
+  <li>Microservices - Eureka, Spring Cloud Gateway</li>
 </ul>
 <ul> 
   <h3>Container:</h3>
